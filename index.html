@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="formValidation.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- name, age, email, phone, gender, hometown, hobbies, address, submit -->
+        <div class="box">
+            <div class="login-head">
+                Login Form
+            </div>
+
+            <form action="" onsubmit="return formValidationFnction()">
+                <div class="element">
+                    <label for="">name</label>
+                    <input type="text" id="uname">
+                    <br>
+                </div>
+
+                <div class="element">
+                    <label for="">age</label>
+                    <input type="text" id="age">
+                    <br>
+                </div>
+
+                <div class="element">
+                    <label for="">email</label>
+                    <input type="text" id="email">
+                    <br>
+                </div>
+
+                <div class="element">
+                    <label for="">Phone number </label>
+                    <input type="text" id="phone_number">
+                    <br>
+                </div>
+
+                <div class="element" id="gender">
+                    <label for="">Gender</label>
+                    <input value="male" type="radio" name="gender">male
+                    <input value="female" type="radio" name="gender">female
+                    <input value="other" type="radio" name="gender">other <br>
+                </div>
+
+                <div class="element">
+                    <label for="">hometown</label>
+                    <select name="" id="hometown">
+                        <option value="" selected disabled>Select your hometown</option>
+                        <option value="jaipur">Jaipur</option>
+                        <option value="jodhpur">Jodhpur</option>
+                        <option value="kota">Kota</option>
+                        <option value="ajmer">Ajmer</option>
+                        <option value="udaipur">Udaipur</option>
+                    </select><br>
+                </div>
+
+
+                <div class="element">
+                    <label for="">Address</label>
+                    <textarea name="" id="address" cols="30" rows="3"></textarea><br>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    <!-- <script src="formValidation.js"></script> -->
+    <script>
+        let uname, age, email, phone_number, gender, hometown, address;
+        function checkEmpty(a, b) {
+            if (b == "") {
+                alert(a + " field empty");
+                return true;
+            }
+        }
+        function formValidationFnction() {
+            uname = document.getElementById("uname").value;
+            if (checkEmpty("uname", uname)) { return false; }
+
+            age = document.getElementById("age").value;
+            if (checkEmpty("age", age)) { return false; }
+            if (isNaN(age)) { alert("Invalid age"); return false; }
+
+            email = document.getElementById("email").value;
+            if (checkEmpty("email", email)) { return false; }
+            let eflag = 0;
+            for (let i = 0; i < email.length; i++) {
+                if (email[i] == "@") { eflag = 1; }
+            }
+            if (!eflag) {
+                alert("Invalid email"); return false;
+            }
+
+            phone_number = document.getElementById("phone_number").value;
+            if (checkEmpty("Phone Number", phone_number)) { return false; };
+            if (isNaN(phone_number)) {
+                alert("Invalid phone number"); return false;
+            }
+
+
+            gender = document.getElementsByName("gender");
+            gflag = 0;
+            for (let i = 0; i < gender.length; i++) {
+                if (gender[i].checked == true) {
+                    gflag = 1;
+                    break;
+                }
+            }
+            if (!gflag) {
+                alert("Pls select gender"); return false;
+            }
+
+
+            hometown = document.getElementById("hometown").value;
+            if (checkEmpty("hometown", hometown)) { return false; };
+
+
+            address = document.getElementById("address").value;
+            if (checkEmpty("address", address)) { return false; };
+
+        }
+
+    </script>
+
+</body>
+
+</html>

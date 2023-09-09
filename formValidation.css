@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper
+{
+    background-image: url("./night-landscape.avif");
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;    
+    /* background-size: 100%; */
+    background-size: cover;
+}
+
+.box
+{
+    width: 400px;
+    background-color: black;
+    opacity: 0.3;
+    border-radius: 5px;
+    margin: auto;
+}
+.login-head
+{
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin: 20px 0px;
+}
+.element
+{
+    margin: 2px 0px; 
+}
+.element label
+{
+    color: white;
+}
+#gender
+{
+    color: white;
+}
+
+.btn-submit
+{
+    color: white;
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 6px; 
+    padding: 4px;
+    margin: 10px 0px;
+    margin-left: 170px;
+}
